@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>"Snake"</title>
+  <title>Full Screen Snake</title>
   <link rel="icon" href="hnet.com-image (2).ico" type="images/x-icon">
   <style>
   
@@ -49,11 +49,7 @@ var apple = {
   x: 320,
   y: 320
 };
-var berry = {
-  x: 480,
-  y: 480
 
-};
 // get random whole numbers in a specific range
 // @see https://stackoverflow.com/a/1527820/2124254
 function getRandomInt(min, max) {
@@ -95,8 +91,7 @@ function loop() {
   // draw apple
   context.fillStyle = 'red';
   context.fillRect(apple.x, apple.y, grid, grid);
-    context.fillStyle = 'magenta';
-  context.fillRect(berry.x, berry.y, grid, grid);
+ 
   // draw snake one cell at a time
   context.fillStyle = 'blue';
   snake.cells.forEach(function(cell, index) {
@@ -109,20 +104,9 @@ function loop() {
      
       // canvas is 400x400 which is 25x25 grids 
       apple.x = getRandomInt(0, 65) * grid;
-      apple.y = getRandomInt(0, 38) * grid;
-      berry.x = getRandomInt(0, 65) * grid;
-      berry.y = getRandomInt(0, 38) * grid;
+      apple.y = getRandomInt(0, 38) * grid
     }
-    if (cell.x === berry.x && cell.y === berry.y) {
-        snake.x = 160;
-        snake.y = 160;
-        snake.cells = [];
-        snake.maxCells = 4;
-        snake.dx = grid;
-        snake.dy = 0;
-        apple.x = getRandomInt(0, 25) * grid;
-        apple.y = getRandomInt(0, 25) * grid;
-      }
+    
     // check collision with all cells after this one (modified bubble sort)
     for (var i = index + 1; i < snake.cells.length; i++) {
       
