@@ -49,6 +49,9 @@ var apple = {
 var berry = {
   x: 480,
   y: 480
+  
+  cellb: [],
+  maxCellb: 1;
 };
 // get random whole numbers in a specific range
 // @see https://stackoverflow.com/a/1527820/2124254
@@ -102,6 +105,7 @@ function loop() {
     // snake ate apple
     if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
+      berry.maxCellb++;
       // canvas is 400x400 which is 25x25 grids 
       apple.x = getRandomInt(0, 65) * grid;
       apple.y = getRandomInt(0, 38) * grid;
