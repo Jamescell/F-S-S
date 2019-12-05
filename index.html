@@ -25,7 +25,7 @@
 <script>
 var canvas = document.getElementById('game');
 var context = canvas.getContext('2d');
-var grid = 10;
+var grid = 20;
 var count = 0;
   
 var snake = {
@@ -108,16 +108,16 @@ function loop() {
       berry.x = getRandomInt(0, 65) * grid;
       berry.y = getRandomInt(0, 38) * grid;
     }
-    if (cell.x === apple.x && cell.y === apple.y) {
-      snake.x = 160;
-      snake.y = 160;
-      snake.cells = [];
-      snake.maxCells = 4;
-      snake.dx = grid;
-      snake.dy = 0;
-      apple.x = getRandomInt(0, 25) * grid;
-      apple.y = getRandomInt(0, 25) * grid;
-    }
+    if (cell.x === berry.x && cell.y === berry.y) {
+        snake.x = 160;
+        snake.y = 160;
+        snake.cells = [];
+        snake.maxCells = 4;
+        snake.dx = grid;
+        snake.dy = 0;
+        apple.x = getRandomInt(0, 25) * grid;
+        apple.y = getRandomInt(0, 25) * grid;
+      }
     // check collision with all cells after this one (modified bubble sort)
     for (var i = index + 1; i < snake.cells.length; i++) {
       
