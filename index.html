@@ -90,14 +90,14 @@ function loop() {
   }
   // draw apple
   context.fillStyle = 'red';
-  context.fillRect(apple.x, apple.y, grid, grid);
+  context.fillRect(apple.x, apple.y, grid-1, grid-1);
  
   // draw snake one cell at a time
   context.fillStyle = 'blue';
   snake.cells.forEach(function(cell, index) {
     
     // drawing 1 px smaller than the grid creates a grid effect in the snake body so you can see how long it is
-    context.fillRect(cell.x, cell.y, grid, grid);  
+    context.fillRect(cell.x, cell.y, grid-1, grid-1);  
     // snake ate apple
     if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
@@ -151,6 +151,7 @@ document.addEventListener('keydown', function(e) {
     snake.dy = grid;
     snake.dx = 0;
   }
+  
 });
 // start the game
 requestAnimationFrame(loop);
