@@ -85,9 +85,9 @@ function loop() {
   // keep track of where snake has been. front of the array is always the head
   snake.cells.unshift({x: snake.x, y: snake.y});
   // remove cells as we move away from them
- /* if (snake.cells.length > snake.maxCells) {
+  if (snake.cells.length > snake.maxCells) {
     snake.cells.pop();
-  }*/
+  }
   // draw apple
   context.fillStyle = 'red';
   context.fillRect(apple.x, apple.y, grid, grid);
@@ -151,7 +151,9 @@ document.addEventListener('keydown', function(e) {
     snake.dy = grid;
     snake.dx = 0;
   }
-  
+  else if (e.which === 13) {
+    alert("Why Hello There");
+  }
 });
 // start the game
 requestAnimationFrame(loop);
